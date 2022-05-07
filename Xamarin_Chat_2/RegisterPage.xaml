@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Xamarin_Chat_2.RegisterPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="Gainsboro">
+            <Frame>
+                <Label Text="Register to chat server" HorizontalTextAlignment="Center" TextColor="Black" FontSize="36" />
+            </Frame>
+            <StackLayout BackgroundColor="Azure" Padding="50">
+                <Entry x:Name="LoginEntry"  Placeholder = "Login" Text="{Binding Path=Login}" />
+                <Entry x:Name="PasswordEntry" Placeholder = "Password" IsPassword ="True" Text="{Binding Path=Password}" />
+                <Entry x:Name="RePasswordEntry" Placeholder = "Repeat Password" IsPassword ="True" Text="{Binding Path=RePassword}" />
+
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="10">
+                <Button  Text="Register" BackgroundColor="Beige" WidthRequest="180" Clicked="RegisterButtonClicked" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

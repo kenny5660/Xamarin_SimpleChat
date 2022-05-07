@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Xamarin_Chat_2.ChatPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="Gainsboro">
+            <ListView Margin="6"
+                  SelectionMode="None"
+                  x:Name="MessagesList"
+                  HasUnevenRows="True"
+                  ItemsSource="{Binding Messages}"
+                  VerticalScrollBarVisibility="Never">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Frame CornerRadius="10" BackgroundColor="Beige" Margin="5">
+                            <StackLayout Orientation="Vertical">
+                                        <Label x:Name="UsernameLabel" Text="{Binding messageData.UserLogin}" TextColor="{Binding UserColor}" FontAttributes="Bold" FontSize="18" />
+                                        <Frame CornerRadius="5" BackgroundColor="WhiteSmoke" Margin="0">
+                                            <Label x:Name="MessageTextLabel" Text="{Binding messageData.Text}" FontSize="18" TextColor="Black" />
+                                        </Frame>
+                                        <Label x:Name="MessageTimeStampLabel"
+                                                Text="{Binding messageData.Time}" FontAttributes="Italic"
+                                                    TextColor="Gray"
+                                                FontSize="10" />
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout BackgroundColor="#2196F3" Padding="8" Margin="1" Orientation="Horizontal">
+                <Editor x:Name="MessageTextEditor"
+
+                   Placeholder = "Text"
+                   HeightRequest="70"
+                   IsSpellCheckEnabled="True"
+                   HorizontalOptions="FillAndExpand"
+                   AutoSize="TextChanges"
+                   IsTextPredictionEnabled="True" />
+                <Button Text="Send" MinimumWidthRequest="100" Clicked="SendButtonClicked" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
